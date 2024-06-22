@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move Button</title>
+</head>
+<body>
+    <div id="moveBox" style="width: 100px; height: 100px; background-color: lightblue; margin: 20px; text-align: center; line-height: 100px;">
+        Move Me!
+    </div>
+    <button onclick="moveRight()">Move Right</button>
+
+    <script>
+        function moveRight() {
+            var box = document.getElementById('moveBox');
+            var currentLeft = parseInt(box.style.left) || 0; 
+            
+            
+            box.style.left = (currentLeft + 10) + 'px';
+        }
+    </script>
+</body>
+</html>
