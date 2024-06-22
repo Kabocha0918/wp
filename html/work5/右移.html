@@ -6,19 +6,17 @@
 <title>Move Button</title>
 </head>
 <body>
-    <div id="moveBox" style="width: 100px; height: 100px; background-color: lightblue; margin: 20px; text-align: center; line-height: 100px;">
-        Move Me!
-    </div>
     <button onclick="moveRight()">Move Right</button>
 
     <script>
         function moveRight() {
-            var box = document.getElementById('moveBox');
-            var currentLeft = parseInt(box.style.left) || 0; 
+            var button = document.querySelector('button');
+            var currentLeft = button.offsetLeft; // 當前左邊距相對於父元素的偏移量
             
-            
-            box.style.left = (currentLeft + 10) + 'px';
+            // 右移 10px
+            button.style.left = (currentLeft + 10) + 'px';
         }
     </script>
 </body>
 </html>
+
