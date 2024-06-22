@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜數字遊戲</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .game-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .game-container h2 {
+            margin-bottom: 20px;
+        }
+        .game-container input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+        }
+        .game-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .game-container button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h2>猜數字遊戲</h2>
+        <input type="number" id="guessInput" placeholder="輸入你的猜測">
+        <button onclick="checkGuess()">提交猜測</button>
+        <p class="message" id="message"></p>
+    </div>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guessInput').value);
+            const messageElement = document.getElementById('message');
+            attempts++;
+
+            if (isNaN(userGuess)) {
+                messageElement.textContent = '請輸入一個有效的數字。';
+            } else if (userGuess < randomNumber) {
+                messageElement.textContent = '太小了，請再試一次！';
+            } else if (userGuess > randomNumber) {
+                messageElement.textContent = '太大了，請再試一次！';
+            } else {
+                messageElement.textContent = `恭喜你，猜對了！你用了 ${attempts} 次猜中這個數字。`;
+            }
+        }
+    </script>
+</body>
+</html>
