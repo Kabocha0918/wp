@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Move Button</title>
+<style>
+    button {
+        position: absolute;
+        left: 50%; 
+        top: 50%; 
+        transform: translate(-50%, -50%); 
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <button id="moveButton" onclick="moveButton()">Move Me!</button>
+
+    <script>
+        function moveButton() {
+            var button = document.getElementById('moveButton');
+            var maxX = window.innerWidth - button.offsetWidth; 
+            var maxY = window.innerHeight - button.offsetHeight; 
+
+            
+            var newLeft = Math.random() * maxX;
+            var newTop = Math.random() * maxY;
+
+            
+            button.style.left = newLeft + 'px';
+            button.style.top = newTop + 'px';
+        }
+    </script>
+</body>
+</html>
